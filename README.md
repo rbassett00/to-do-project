@@ -23,17 +23,17 @@ The first thing a user can do when opening the app is create a task. They must e
             <button class="task-delete material-icon" onclick="deleteTask(${this.id})">delete</button>
 </li>
 ```
-![image](https://github.com/user-attachments/assets/4817857d-1170-4476-801d-d7d96fd8e210)
+![image](todo1.png)  
 *A freshly created task*
 
 
 
 The delete button deletes this html. If a user marks a task as done, it crosses a line through the task with simple css. If the 'Filter' toggle is toggled on, it will only display unchecked tasks. This is done with a simple `filterTasks()` function that saves the tasks, deletes all elements in the task container, then adding them back in if `task.done` is false. 
 
-![image](https://github.com/user-attachments/assets/b4b3ac62-ff5e-454b-882b-7e0c8a4603ff)
+![image](todo3.png)  
 *A task being marked off*
 
-![image](https://github.com/user-attachments/assets/5e52deec-ce37-4d61-8ad1-d1bcc33cfd58)
+![image](todo2.png)  
 *A task being filtered out*
 
 

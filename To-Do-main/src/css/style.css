@@ -1,0 +1,408 @@
+/* style.cs: BYU IT&C 210a Boilerplate Stylesheet */
+
+/* We use the Material Icons font in some of the styles. This brings in
+the corresponding fonts from Google Fonts. */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.typewriter-text {
+    font-family: 'Special Elite', monospace;
+}
+
+
+/* The root rule is the foundation for the whole page. These settings _cascade_
+to all elements unless they are overridden. */
+
+:root {
+	/* Change these variables according to your theme */
+	--primary: #f8f398;
+	--accent: #f1b963;
+	--delete: #ffffff;
+	--primary-text: #e46161;
+	--second-text: #fdffcd;
+
+	/* Window background and default font */
+    background: #cbf078;
+	background-size: 400% 400%;
+	
+    font-family: 'Special Elite', monospace;
+	color: var(--primary-text);
+	
+}
+
+  
+  /* Content styles remain the same or updated based on your needs */
+  .content {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 0.25em;
+	box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+	box-sizing: border-box;
+	left: 50%;
+	padding: 10vmin;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+  }
+
+
+@font-face {
+	font-family: 'CustomFont'; /* Name of the font */
+	src: url('font/custom.ttf') format('truetype'); /* Path to the font file */
+	font-weight: normal; /* Optional: specify font weight */
+	font-style: normal; /* Optional: specify font style */
+  }
+  
+
+/* These rules with element selectors apply to all elements of the corresonding names. In a sense, they
+are automatically applied */
+
+body {
+    max-width: 30rem;			  /* Keeps the page from overflowing on wide monitors */
+    margin: 1em auto;		      /* 0.5em is top and bottom margin. 'auto' for left and right centers the body on the page */
+    border: 10px var(--primary-text);	/* Surround the content with a solid black border */
+    border-radius: 10px;			  /* Round the corners of the body section */
+    padding: 1rem;			  /* Padding goes between the borders and the internal content */
+    background-color: var(--primary);
+	font-family: 'Patrick Hand SC', cursive;
+	transform: scale(1.3); /* Slightly enlarge everything inside */
+    transform-origin: center top;
+	position: relative;	/* Contrast the body background from the page background */
+}
+
+h1 {
+	font-family: "Customfont";
+	color: var(--primary-text);
+}
+
+nav {
+    color: var(--second-text);				/* Nav bar is white on very dark gray */
+    background-color: var(--accent);
+    padding: 0.75rem;
+	border-radius: 10px			  /* Give the nav bar some internal padding */
+}
+
+nav a {
+    color: var(--primary);	/* Links in the nav bar are light blue instead of white */
+    text-decoration: none;	
+	font-family: "Customfont";	  /* Don't underline links in the nav bar */
+}
+
+
+/* These with class selectors take effect when you apply the corresponding class name on an element */
+
+.tasklist {
+	padding-left: 0;		/* Remove padding that <ul> has by default */
+	list-style-type: none;	/* No bullets in the list */
+}
+
+.task {
+    font-size: 1.3rem; /* Increase task text size */
+    padding: 15px;
+    background-color: var(--second-text);
+    border-radius: 10px;
+    margin-bottom: 12px; /* Space between tasks */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-done {
+	display: inline-block;
+	box-sizing: border-box;
+	/* Add property to change checkbox icon color */
+}
+
+.task-description {
+	display: inline-block;
+	width: calc(100% - 12em);
+	box-sizing: border-box;
+	color: var(--primary-text);
+}
+
+.task-date {
+	display: inline-block;
+	width: 6em;
+	color: var(--primary-text);
+}
+
+.task-delete {
+	display: inline-block;
+	box-sizing: border-box;
+	/* Add property to change delete icon color */
+	color: var(--accent);
+}
+
+.material-icon {
+	border: none; /* No border */
+	background: none; /* Match the background of the parent */
+	font-family: 'Material Icons'; /* Use the icon font */
+	font-size: inherit; /* Input doesn't automatically inherit font size. This brings it in. */
+	cursor: pointer; /* Change the cursor to a pointer when hovering on this element */
+}
+
+
+
+/* Add your custom class rules here */
+
+.example {
+	color: var(--primary-text);
+}
+
+/* Add rule for: */
+/* "Create Task" button border, background, and text */
+
+/* ===== checkbox-icon =============== */
+/* These three rules apply the checkbox icon from the Material Icons font to a checkbox */
+
+input.checkbox-icon {
+	font-family: 'Material Icons';
+    font-size: inherit;  /* Input doesn't automatically inherit font size. This brings it in. */
+	appearance: none;    /* Hide the existing checkbox so that the new rendering will overlay it */
+	cursor: pointer;     /* Change the cursor to a pointer when hovering on this element */
+}
+
+input.checkbox-icon:before {
+	content: 'check_box_outline_blank';
+	color: var(--accent);
+}
+
+input.checkbox-icon:checked:before {
+	content: 'check_box';
+	color: var(--accent);
+}
+
+/* ===== toggle-switch =============== */
+/* This is pretty advanced CSS and is intended to be ready-to-use. Just
+ * set an input of type checkbox to class 'toggle-switch' to make the
+ * control look like a switch instead of a checkbox.
+ * Example:
+ *     <input type='checkbox' name='cb1' class='toggle-switch'/><label for='cb1'>Lights</label>
+ *
+ * Adapted from: https://codeconvey.com/convert-checkbox-to-toggle-button-css/
+ * with important adjustments to make it senstive to the local font size.
+ * and the addition of comments.
+ */
+ label[for="cb-sort"], label[for="filter"] {
+    color: var(--primary-text);
+	font-family: "Customfont";
+}
+/* Toggle Switch */
+input.toggle-switch {
+	vertical-align: middle;
+    font-size: 1em;      /* Input doesn't automatically inherit font size. This brings it in. */
+	appearance: none;    /* Hide the existing checkbox so that the new rendering will overlay it */
+	position: relative;  /* Relative positioning holds this elements space and lets :before and :after pseudo-elements position relative to this */
+	cursor: pointer;     /* Change the cursor to a pointer when hovering on this element */
+	margin: 0em 0.2em;   /* No top and bottom margin. Make space to the left and right. Use 'em' units to keep space relative to local font size */
+    width: 1.4em; 		 /* Set the element width and height relative to the font size. */
+    height: 0.8em;
+}
+
+/* Use the :after pseudo-element to create an oval as the surface of the button. */
+input.toggle-switch:after {
+    vertical-align: middle;	/* Center this vertically */
+	content: '';            /* Empty text content. But still required to establish the element */
+	display: inline-block;  /* Inline-block makes it take up rectangular space */
+    position: absolute;	    /* Absolute positioning without left and top locates this exactly on top of the input.toggle-switch */
+	width: 1.4em;           /* Width and height of the oval */
+	height: 0.6em;
+	background-color: var(--second-text); /* Light gray fill */
+	border-radius: 0.3em;   /* Border radius of half the height makes this an oval instead of a rectangle */
+}
+
+/* Use the :before pseudo-element to create a circle as the toggle handle */
+input.toggle-switch:before {
+    vertical-align: middle; /* Center this vertically thereby aligning to the background oval */
+	content: '';            /* Empty text content required to take up any space */
+	display: inline-block;  /* Inline-block makes it take up rectangular space */
+	position: absolute;		/* Absolute positioning without x and y locates this on top of the input.toggle-switch */
+	width: 0.7em;           /* Width and height are the same making it take up a square space which will be round with the border-radius */
+	height: 0.7em;
+    z-index: 1;				/* Z-index of 1 positions this on top of the input.toggle-switch:after */
+	left: 0;                /* Position at the left edge of the parent checkbox (it will shift right when activated) */
+	top: -0.1em;            /* Center it vertically on the background oval - tweaked to position just right */
+	border: 1px solid var(--accent); /* border is the same color as the background oval */
+	border-radius: 0.6em;   /* Radious greater than 1/2 the height/width makes a circle */
+	background-color: var(--accent);  /* Fill with white */
+	box-shadow: 1px 1px 3px var(--accent); /* Cast a shadow on the background */
+	transition-duration: 0.3s; /* Animate turning on or off over 0.3 seconds */
+}
+
+/* Shift the handle to the right when turned on */
+input.toggle-switch:checked:before {
+	left: 0.7em;            /* When turned on, shift to the right */
+	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6); /* When turned on, cast the shadow the other direction */
+}
+
+/* Change the background color to green when turned on */
+input.toggle-switch:checked:after {
+	background-color: var(--accent);
+}
+
+.my-description {
+	width: 100%;
+	background-color: var(--second-text);
+	border-radius: 10px;
+	border: none;
+	padding-right: 20px;
+	
+}
+.create-task {
+	background-color: var(--primary-text);
+	font-weight: 1000;
+	color: var(--primary);
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
+	text-align: center;
+}
+.create-task:hover {
+	box-shadow: 0 0 0 3px var(--accent); /* Creates a border-like effect */
+	transform: scale(1.05); /* Optional: Slightly enlarges the button on hover */
+  }
+.my-date {
+	background-color: var(--second-text);
+	color: var(--primary-text);
+	border-radius: 10px;
+	border: none;
+	margin-top: 10px;
+}
+.my-description, .my-date, .create-task {
+    padding: 10px; /* Add padding */
+    font-size: 1rem; /* Increase font size for readability */
+}
+
+:checked + .task-description {
+	text-decoration: line-through;
+}
+.form-box {
+	background-color: var(--accent);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+	margin-top: 40px;
+}
+.form-create-task {
+    display: flex;
+    flex-direction: column; /* Stack items vertically *//* Add spacing between elements */
+    width: 100%;
+    max-width: 400px; /* Limit max width */
+}
+.my-description:focus, .my-date:focus, .create-task:focus {
+    outline: none; /* Removes the default browser outline */
+    box-shadow: none; /* Optional: Remove any shadow effect on focus */
+}
+.login{
+	justify-content: left;
+	margin-top: 2px;
+}
+.login-button{
+	margin-top: 10px;
+	font-family: 'Patrick Hand SC', cursive;
+}
+.login-header{
+	margin: 0px;
+}
+.register-button{
+	margin-top: 10px;
+	font-family: 'Patrick Hand SC', cursive;
+}
+.login-body{
+	max-width: 17rem;
+}
+.flower {
+    border-radius: 100%;
+    width: 100px;  
+    height: 100px; 
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+.flower:hover{
+    transform: scale(1.2);
+}
+.flower1{
+    background-color: var(--primary);
+    border: 10px solid var(--primary-text);
+    top: 150px;
+    left: -230px;
+}
+.flower2{
+    background-color: var(--accent);
+    border: 20px solid var(--second-text);
+    top: 350px;
+    left: -330px;
+}
+.flower3{
+    background-color: var(--primary-text);
+    border: 5px solid var(--accent);
+    top: 300px;
+    left: -130px;
+}
+.flower4{
+    background-color: var(--second-text);
+    border: 5px solid var(--primary);
+    top: 100px;
+    left: 510px;
+}
+.flower5{
+    background-color: var(--primary);
+    border: 20px solid var(--accent);
+    top: 300px;
+    left: 610px;
+}
+.flower6{
+    background-color: var(--primary-text);
+    border: 10px solid var(--primary);
+    top: 200px; 
+    left: 710px;
+}
+.stem {
+    width: 10px; 
+    position: absolute;
+}
+
+.stem1 {
+    top: 200px;  
+    left: -185px; 
+    height: 800px;
+    background-color: var(--accent);
+}
+
+.stem2 {
+    top: 450px;  
+    left: -285px;
+    height: 550px; 
+    background-color: var(--primary-text);
+}
+
+.stem3 {
+    top: 400px;  
+    left: -85px;
+    height: 600px; 
+    background-color: var(--primary);
+}
+
+.stem4 {
+    top: 200px;  
+    left: 555px;
+    height: 800px; 
+    background-color: var(--primary-text);
+}
+
+.stem5 {
+    top: 400px;  
+    left: 655px;
+    height: 600px; 
+    background-color: var(--primary);
+}
+
+.stem6 {
+    top: 300px;  
+    left: 755px; 
+    height: 700px;
+    background-color: var(--accent);
+}
